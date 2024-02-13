@@ -1,0 +1,21 @@
+{
+  "humans": [
+    {
+      "name": "Veronika",
+      "age": 14,
+      "hobby": [
+        "cooking",
+        "reading"
+      ],
+      "birthdayPlace": "Novosibsrsk"
+    },
+    {
+      "name": "Vasiliy",
+      "age": 14,
+      "hobby": [
+        "playing football"
+      ],
+      "birthdayPlace": "Minsk"
+    }
+  ]
+}
