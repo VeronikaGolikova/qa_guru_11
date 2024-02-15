@@ -13,6 +13,7 @@ import veronika.golikova.model.SchoolClass;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -82,8 +83,10 @@ public class FileParsingTest {
 
     @Test
     void jsonParsingWithJacksonCoreTest() throws Exception {
-        File file = new File("src/test/resources/schoolClass.json");
-            SchoolClass schoolClass = new ObjectMapper().readValue(file, SchoolClass.class);
-        Assertions.assertEquals("Veronika", schoolClass.getHumans().get(0).getName());
+        try (InputStream is = cl.getResourceAsStream("schoolClass.json");
+             Reader reader = new InputStreamReader(is)) {
+            SchoolClass schoolClass = new ObjectMapper().readValue(reader, SchoolClass.class);
+            Assertions.assertEquals("Veronika", schoolClass.getHumans().get(0).getName());
+        }
     }
 }
