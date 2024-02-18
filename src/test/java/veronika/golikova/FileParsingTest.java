@@ -50,13 +50,13 @@ public class FileParsingTest {
              ZipInputStream zis = new ZipInputStream(is)) {
             ZipEntry entry;
             while ((entry = zis.getNextEntry()) != null) {
-                if (entry.getName().equals("Прайс-лист Алеч 01.02.2024 (1).xlsx")) {
+                if (entry.getName().equals("Price.xlsx")) {
 
                     XLS xls = new XLS(zis);
                     Assertions.assertEquals(
                             "Абрикос сублимированный (порошок)",
                             xls.excel.getSheet("Продукция")
-                                    .getRow(7)
+                                    .getRow(6)
                                     .getCell(1)
                                     .getStringCellValue()
                     );
